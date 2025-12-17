@@ -1,10 +1,9 @@
 // src/components/MovieCard.jsx
 import { StarIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import timeFormat from "../lib/timeFormat";
 import { useAppContext } from "../context/AppContext";
-import { motion } from "framer-motion";
+import timeFormat from "../lib/timeFormat";
 import MovieCardSkeleton from "./MovieCardSkeleton"; // use your existing skeleton
 
 /**
@@ -116,7 +115,7 @@ const MovieCard = ({ movie, isUpcoming = false, loading = false }) => {
   const runtimeLabel = runtimeMinutes ? timeFormat(runtimeMinutes) : null;
 
   return (
-    <motion.div
+    <div
       className="flex flex-col justify-between p-3 bg-gray-800 rounded-2xl hover:-translate-y-1 transition duration-300 w-66 will-change-transform"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -164,7 +163,7 @@ const MovieCard = ({ movie, isUpcoming = false, loading = false }) => {
           {movie.vote_average?.toFixed ? movie.vote_average.toFixed(1) : movie.vote_average}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
